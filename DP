@@ -1,0 +1,40 @@
+// Climbling Stairs 
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n == 1:
+            return 1
+        first, second = 1, 2
+        for i in range(3, n + 1):
+            first, second = second, first + second
+        return second
+
+//Best time to But and Sell stocks
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        min_price = float('inf')
+        max_profit = 0
+
+        for price in prices:
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
+
+        return max_profit
+
+// Maximum Subarray 
+class Solution:
+    def maxSubArray(self, nums):
+        max_sum = float('-inf')
+        current_sum = 0
+        
+        for num in nums:
+            current_sum = max(num, current_sum + num)
+            max_sum = max(max_sum, current_sum)
+        
+        return max_sum
+
+//Unique Paths
+import math
+
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        return math.factorial(m + n - 2) // (math.factorial(m - 1) * math.factorial(n - 1))
